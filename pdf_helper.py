@@ -36,9 +36,8 @@ def pdf_has_images(pdf_file):
 
 
 # create a function
-def getPageCount():
-    # file path details
-    filepath = "sample1.pdf"
+def getPageCount(filepath):
+
     # printing file path
     print("\nFile path : ", filepath)
     # creating a pdf file object
@@ -49,6 +48,4 @@ def getPageCount():
     totalpages = readpdf.numPages
     # printing number of pages in pdf file
     print("Number of pages : ", totalpages, "\n")
-
-
-getPageCount()
+    return totalpages
