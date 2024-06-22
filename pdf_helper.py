@@ -1,12 +1,27 @@
 from pdfminer.high_level import extract_text, extract_pages
 import fitz
+from datetime import datetime
+import os
+import PyPDF4
 
 
-def get_pdf_page_count(file_path):
-    pdf_document = fitz.open(file_path)
-    page_count = pdf_document.page_count
-    pdf_document.close()
-    return page_count
+# Helper function to generate a custom filename with timestamp
+def generate_filename(filename):
+    base, ext = os.path.splitext(filename)
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    return f"{base}_{timestamp}{ext}"
+
+
+# Function to save the uploaded PDF file
+def save_uploaded_file(uploaded_file):
+    # Generate a custom filename with a timestamp
+    custom_filename = generate_filename(uploaded_file.name)
+    save_path = os.path.join("uploads", custom_filename)
+
+    with open(save_path, "wb") as f:
+        f.write(uploaded_file.getbuffer())
+
+    return save_path
 
 
 # Function to check if the PDF contains images
@@ -20,4 +35,20 @@ def pdf_has_images(pdf_file):
     return False
 
 
-get_pdf_page_count("example.pdf")
+# create a function
+def getPageCount():
+    # file path details
+    filepath = "sample1.pdf"
+    # printing file path
+    print("\nFile path : ", filepath)
+    # creating a pdf file object
+    file = open(filepath, "rb")
+    # creating a pdf reader object
+    readpdf = PyPDF4.PdfFileReader(file)
+    # get total number of pages in pdf file
+    totalpages = readpdf.numPages
+    # printing number of pages in pdf file
+    print("Number of pages : ", totalpages, "\n")
+
+
+getPageCount()

@@ -17,6 +17,10 @@ uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 if uploaded_file is not None:
 
     try:
+
+        save_path = pdf_helper.save_uploaded_file(uploaded_file)
+        print(save_path)
+
         # Check the file size
         file_size_mb = uploaded_file.size / (1024 * 1024)
         if file_size_mb > MAX_FILE_SIZE_MB:
@@ -24,10 +28,11 @@ if uploaded_file is not None:
                 f"File size exceeds the limit of {MAX_FILE_SIZE_MB} MB. Please upload a smaller file."
             )
         else:
+            #
             # Extract text from the uploaded PDF file
             text = extract_text(uploaded_file)
 
-            page_count = pdf_helper.extract_pages(uploaded_file)
+            page_count = pdf_helper.get_pdf_page_count(uploaded_file)
 
             st.subheader(f"Pages: {page_count}")
 
