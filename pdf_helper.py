@@ -6,7 +6,6 @@ def get_pdf_page_count(file_path):
     pdf_document = fitz.open(file_path)
     page_count = pdf_document.page_count
     pdf_document.close()
-    print(page_count)
     return page_count
 
 
