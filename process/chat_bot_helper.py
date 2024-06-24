@@ -65,3 +65,9 @@ def create_context(text):
         return_source_documents=False,
         chain_type_kwargs=chain_type_kwargs,
     )
+
+    return chain
+
+
+def get_response(chain, prompt):
+    return chain.run(prompt)
