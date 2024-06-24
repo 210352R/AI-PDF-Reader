@@ -39,6 +39,7 @@ if uploaded_file is not None:
 
             # Display the extracted text on the web page
             st.subheader("Extracted Text")
+            text = pdf_helper.preprocess_text(text)
             st.write(text.strip())
 
             # Check if the PDF has images
