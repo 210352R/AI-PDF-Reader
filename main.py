@@ -13,6 +13,7 @@ MAX_FILE_SIZE_MB = 200
 # File upload widget
 uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 
+
 # Check if a file is uploaded
 if uploaded_file is not None:
 

@@ -3,6 +3,10 @@ import fitz
 from datetime import datetime
 import os
 import PyPDF4
+import spacy
+
+# Load spaCy model
+nlp = spacy.load("en_core_web_sm")
 
 
 # Helper function to generate a custom filename with timestamp
@@ -49,3 +53,11 @@ def getPageCount(filepath):
     # printing number of pages in pdf file
     print("Number of pages : ", totalpages, "\n")
     return totalpages
+
+
+#  Function for preprocess Text ---------------------------
+# Function to preprocess and clean text using spaCy
+def preprocess_text(text):
+    doc = nlp(text)
+    cleaned_text = " ".join([token.text for token in doc if not token.is_space])
+    return cleaned_text
