@@ -10,4 +10,4 @@ def chat_page():
     st.write(para_text)
     # Button to go back to the main page
     if st.button("Go Back"):
-        st.session_state.page = "main"
+        st.session_state.page = "pdf"

@@ -47,7 +47,9 @@ def pdf_page():
                 # has_images = pdf_helper.pdf_has_images(uploaded_file)
                 # print(has_images)
                 add_data("ext_text", text)
-
+            # Button to navigate to the next page
+            if st.button("Go to Chat Bot"):
+                st.session_state.page = "chatbot"
         except Exception as e:
             print(e)
             st.error(f"An error occurred: {e}")
