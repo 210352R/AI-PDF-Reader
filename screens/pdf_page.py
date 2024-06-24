@@ -1,6 +1,7 @@
 import streamlit as st
 from pdfminer.high_level import extract_text
 import screens.pdf_helper as pdf_helper
+from extracted_data_store import add_data, get_data
 
 
 def pdf_page():
@@ -42,9 +43,10 @@ def pdf_page():
                 st.write(text.strip())
 
                 # Check if the PDF has images
-                uploaded_file.seek(0)  # Reset the file pointer to the beginning
-                has_images = pdf_helper.pdf_has_images(uploaded_file)
-                print(has_images)
+                # uploaded_file.seek(0)  # Reset the file pointer to the beginning
+                # has_images = pdf_helper.pdf_has_images(uploaded_file)
+                # print(has_images)
+                add_data("ext_text", text)
 
         except Exception as e:
             print(e)
