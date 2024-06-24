@@ -1,20 +1,21 @@
 import streamlit as st
 from extracted_data_store import add_data, get_data
+import process.chat_bot_helper as bot_helper
 
 
-# # Define the next page UI
-# def chat_page():
-#     st.title("Chat Bot Page" ,     icon=":robot:face:")
-#     st.write("This is the content of the next page.")
-#     para_text = get_data("ext_text")
-#     st.write(para_text)
-#     # Button to go back to the main page
-#     if st.button("Go Back"):
-#         st.session_state.page = "pdf"
+def load_context_and_chain():
+    para_text = get_data("ext_text")
+    print("Para Text : ", para_text)
+    chain = bot_helper.create_context(para_text)
+    return chain
 
 
 def chat_page():
     st.title("Echo Bot")
+    chain = load_context_and_chain()
+    print(
+        "Successfully Load Chain -----------------------------------------------------"
+    )
 
     # Initialize chat history
     if "messages" not in st.session_state:
@@ -32,7 +33,7 @@ def chat_page():
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-        response = f"Echo: {prompt}"
+        response = bot_helper.get_response(chain, prompt)
         # Display assistant response in chat message container
         with st.chat_message("assistant"):
             st.markdown(response)
