@@ -8,7 +8,7 @@ st.set_page_config(page_title="Upload PDF", page_icon=":robot_face:")
 
 # Initialize session state
 if "page" not in st.session_state:
-    st.session_state.page = "pdf"
+    st.session_state.page = "chatbot"
 
 # Route to the appropriate page based on the session state
 if st.session_state.page == "pdf":
