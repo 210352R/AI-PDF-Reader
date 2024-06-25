@@ -1,5 +1,5 @@
 from pdfminer.high_level import extract_text, extract_pages
-import fitz
+
 from datetime import datetime
 import os
 import PyPDF4
@@ -28,15 +28,15 @@ def save_uploaded_file(uploaded_file):
     return save_path
 
 
-# Function to check if the PDF contains images
-def pdf_has_images(pdf_file):
-    doc = fitz.open(stream=pdf_file.read(), filetype="pdf")
-    for page_num in range(len(doc)):
-        page = doc.load_page(page_num)
-        image_list = page.get_images(full=True)
-        if image_list:
-            return True  # At least one image found
-    return False
+# # Function to check if the PDF contains images
+# def pdf_has_images(pdf_file):
+#     doc = fitz.open(stream=pdf_file.read(), filetype="pdf")
+#     for page_num in range(len(doc)):
+#         page = doc.load_page(page_num)
+#         image_list = page.get_images(full=True)
+#         if image_list:
+#             return True  # At least one image found
+#     return False
 
 
 # create a function

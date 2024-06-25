@@ -1,4 +1,4 @@
-PyMuPDF==1.20.0
+
 langchain==0.2.5
 pdfminer.six
 PyPDF4
