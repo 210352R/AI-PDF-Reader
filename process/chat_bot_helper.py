@@ -17,7 +17,7 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 
 # Build LLM Model --------------------------------------
-llm = GooglePalm(google_api_key=api_key, temperature=0.5)
+llm = GooglePalm(google_api_key=api_key, temperature=0.7)
 
 
 # Get word embeddings using google palm embedding
@@ -37,15 +37,15 @@ def create_context(text):
     )
 
     # Create a retriever for querying the vector database
-    retriever = vectordb.as_retriever(score_threshold=0.7)
+    retriever = vectordb.as_retriever(score_threshold=0.8)
 
     # create memory instance for store the context ----------------------
     memory = ConversationBufferWindowMemory(k=5)
 
     prompt_template = """Given the following context and a question, generate an answer based on this context only.
     In the answer try to provide as much text as possible from "response" section in the source document context without making much changes.
-    If the answer is not found in the context, kindly give most approprate answers most matched to context.If Context is  about quections like assignment dont repeat quection again in result.
-    if Context defined some quections and user asked that quections please give answer for that quections. 
+    If the answer is not found in the context, kindly give most appropriate answers.If Context is  about quections like assignment don't repeat quection again in response.
+    if Context defined some quections and user asked that quections please give answer for that quections.  Give answers more natural.
 
     CONTEXT: {context}
 

@@ -1,4 +1,3 @@
-
 langchain==0.2.5
 pdfminer.six
 PyPDF4
