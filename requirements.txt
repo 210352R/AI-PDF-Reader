@@ -6,4 +6,4 @@ PyPDF4==1.27.0
 python-dotenv==1.0.1
 spacy==3.7.5
 streamlit==1.36.0
-
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0.tar.gz
