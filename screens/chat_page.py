@@ -47,7 +47,12 @@ def chat_page():
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-        response = bot_helper.get_response(chain, prompt)
+        para_text = get_data("ext_text")
+        if para_text is None:
+            response = bot_helper.get_normal_response(chain, prompt)
+        else:
+            response = bot_helper.get_response(chain, prompt)
+
         # Display assistant response in chat message container
         with st.chat_message("assistant"):
             st.markdown(response)
