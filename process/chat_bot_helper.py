@@ -71,6 +71,7 @@ def create_context(text):
 
 
 def get_response(chain, prompt):
+    ##  Update deprecated method -- change run to invoke
     return chain.invoke(prompt)
 
 
