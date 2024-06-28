@@ -7,7 +7,8 @@ def load_context_and_chain():
     try:
         para_text = get_data("ext_text")
         if para_text is None:
-            return None
+            normal_chain = bot_helper.get_normal_chain()
+            return normal_chain
 
         print("Para Text:", para_text)
         chain = bot_helper.create_context(para_text)

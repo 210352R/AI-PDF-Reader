@@ -71,7 +71,7 @@ def create_context(text):
 
 
 def get_response(chain, prompt):
-    return chain.run(prompt)
+    return chain.invoke(prompt)
 
 
 if __name__ == "__main__":
