@@ -7,7 +7,7 @@ def load_context_and_chain():
     try:
         para_text = get_data("ext_text")
         if para_text is None:
-            raise ValueError("No data found for key 'ext_text'.")
+            return None
 
         print("Para Text:", para_text)
         chain = bot_helper.create_context(para_text)
