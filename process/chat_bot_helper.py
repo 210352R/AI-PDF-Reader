@@ -7,6 +7,7 @@ from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
+from langchain.chains import LLMChain
 
 
 import os
