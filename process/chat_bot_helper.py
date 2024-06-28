@@ -80,3 +80,15 @@ if __name__ == "__main__":
     prompt = "Give answers for this assignment all quections?"
     response = get_response(chain, prompt)
     print(response)
+
+
+def get_normal_chain():
+    # Define your prompt template
+    normal_prompt_template = PromptTemplate(
+        input_variables=["query"],
+        template="Answer the following question based on your knowledge: {query}",
+    )
+
+    # Initialize the RunnableSequence
+    normal_chain = LLMChain(llm=llm, prompt=normal_prompt_template)
+    return normal_chain
