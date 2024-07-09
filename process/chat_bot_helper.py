@@ -82,7 +82,7 @@ def get_normal_response(chain, prompt):
 # check Comment ---
 
 if __name__ == "__main__":
-    text = "Data Structures and Algorithms Take Home Assignment Week 5 - Basic Data Structures March , 2023 You are required to answer the below questions and submit a PDF to the submission link provided under this week before the deadline ( no extensions will be provided ) . You can either write / type your answers , but either way your answers should be readable . Question 1 Explain briefly what a double linked list and a circular linked list is ? Note : Please use diagrams in your explanations Question 2 Write pseudo codes for the operations of a single linked list . Question 3 How can you implement a stack and a queue using a linked list ? Note : Explain how you would do it and also write pseudo codes for all the operations ."
+    text = "Data Structures and Algorithms Take Home Assignment - Basic Data Structures March , 2023 You are required to answer the below questions and submit a PDF to the submission link provided under this week before the deadline ( no extensions will be provided ) . You can either write / type your answers , but either way your answers should be readable . Question 1 Explain briefly what a double linked list and a circular linked list is ? Note : Please use diagrams in your explanations Question 2 Write pseudo codes for the operations of a single linked list . Question 3 How can you implement a stack and a queue using a linked list ? Note : Explain how you would do it and also write pseudo codes for all the operations ."
     chain = create_context(text)
     prompt = "Give answers for this assignment all quections?"
     response = get_response(chain, prompt)
