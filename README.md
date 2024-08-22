@@ -1,4 +1,5 @@
 # AI-PDF Reader - Multi-RAG Architecture LLM Project
+![AI_pdchatbot](https://github.com/user-attachments/assets/7f363514-2e29-4383-9ddb-ca32a737ad54)
 
 ## Description
 
